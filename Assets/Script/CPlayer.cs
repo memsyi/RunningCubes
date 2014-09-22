@@ -63,12 +63,13 @@ public class CPlayer : MonoBehaviour {
 			}
 
 		}
-		if (m_nRotateRange % 90 == 0)
+		if (m_nRotateRange % 90 == 0) {
 			m_bRotate = false;
+			m_nRotateRange = 0;
+		}
 	}
 	// Update is called once per frame
 	void Update () {
-//		transform.Translate(Vector3.forward * m_fMovespeed*Time.deltaTime);
 		rotate ();
 		if (Input.GetMouseButtonDown (0))
 			m_bRotate = true;

@@ -44,15 +44,19 @@ public class CBarrier : MonoBehaviour {
 
 		ArrayList aCubes = script.m_aCubes;
 		for (int i = 0; i < aCubes.Count; i ++) {
-			GameObject cube = (GameObject) aCubes[i];
-			int nRows = (int)(cube.transform.position.y - m_fStartPosY);
-			int nCols = (int)(cube.transform.position.x - m_fStartPosX);
+			GameObject cube = (GameObject)aCubes [i];
+			CCube cube_script = (CCube) cube.GetComponent(typeof(CCube));
+
+			int nRows = (int)(cube_script.m_NoChangePos.y - m_fStartPosY);
+			int nCols = (int)(cube_script.m_NoChangePos.x - m_fStartPosX);
 			int index = nRows * m_nCols + nCols;
-			GameObject quad = (GameObject)m_aQuads[index];
+			GameObject quad = (GameObject)m_aQuads [index];
 			quad.renderer.enabled = false;
 			quad.collider.isTrigger = true;
 
 		}
+
+		
 	}
 
 	public void startGlint(){

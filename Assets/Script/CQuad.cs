@@ -13,11 +13,11 @@ public class CQuad : MonoBehaviour {
 		if (m_bGlint) {
 			if (Random.Range(0,4) == 0){
 				renderer.enabled = false;
-				collider.enabled = false;
+				collider.isTrigger = true;
 			}
 			if (Random.Range(0,4) == 1){
 				renderer.enabled = true;
-				collider.enabled = true;
+				collider.isTrigger = false;
 			}
 		}
 	}

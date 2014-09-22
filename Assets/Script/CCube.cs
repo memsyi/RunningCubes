@@ -5,10 +5,13 @@ public class CCube : MonoBehaviour {
 	public float m_fMovespeed =10f;
 	public bool m_bRotate = false;
 	public int m_nRotateRange = 0;
+	public Vector2 m_NoChangePos;
 	// Use this for initialization
 	void Start () {
 		BoxCollider collider = (BoxCollider)GetComponent ("BoxCollider");
 		collider.size = new Vector3(0.5f,0.5f,0.5f);
+		m_NoChangePos.x = transform.position.x;
+		m_NoChangePos.y = transform.position.y;
 //		renderer.enabled = false;
 //
 //		var material = new PhysicMaterial();
