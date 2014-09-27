@@ -9,7 +9,7 @@ public class CCube : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		BoxCollider collider = (BoxCollider)GetComponent ("BoxCollider");
-		collider.size = new Vector3(0.5f,0.5f,0.5f);
+//		collider.size = new Vector3(0.5f,0.5f,0.5f);
 		m_NoChangePos.x = transform.position.x;
 		m_NoChangePos.y = transform.position.y;
 //		renderer.enabled = false;

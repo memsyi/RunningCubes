@@ -15,15 +15,19 @@ public class bgtrigger : MonoBehaviour {
 
 		if (e.CompareTag ("Player")) {
 			if (transform.parent.CompareTag ("bg2")) {//父类
-					bg = GameObject.FindGameObjectWithTag ("bg2");
-					bg.transform.position = new Vector3 (0, 0, bg.transform.position.z + 200);
-					resetQuad();
+				bg = GameObject.FindGameObjectWithTag ("bg2");
+				bg.transform.position = new Vector3 (0, 0, bg.transform.position.z + 200);
+				resetQuad();
 
 			} if(transform.parent.CompareTag ("bg1")) {
 				bg = GameObject.FindGameObjectWithTag ("bg1");
 				bg.transform.position = new Vector3 (0, 0, bg.transform.position.z + 200);
 				resetQuad();
 			}
+
+			CPlayer script = (CPlayer)e.GetComponent(typeof(CPlayer));
+			script.m_nScore ++;
+			Debug.Log(script.m_nScore);
 		}
 	}
 

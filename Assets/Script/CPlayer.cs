@@ -2,30 +2,27 @@
 using System.Collections;
 
 public class CPlayer : MonoBehaviour {
-	public float m_fMovespeed =30f;
+	public float m_fMovespeed = 20f;
 	public bool m_bRotate = false;
 	public int m_nRotateRange = 0;
 	public ArrayList m_aCubes;
+	public int m_nScore = 0;
 	protected CState m_state;
 	// Use this for initialization
 	void Start () {
-		Rigidbody rigidbody = (Rigidbody)GetComponent("Rigidbody");
-		rigidbody.velocity = new Vector3 (0, 0, 20.0f);
-//		rigidbody.AddForce(new Vector3 (0, 0, 5.0f));
+//		setVelocity (m_fMovespeed);
 
 	}
+	
 
 	void Awake () {
 		m_aCubes = new ArrayList ();
 		CState state = new CTwoCubeState ();
 		setState(state);
-//		CState state1 = new CThreeCubeState ();
-//		setState(state1);
-//		CState state2 = new CFourCubeState ();
-//		setState(state2);
+
 	}
 	
-	void setState(CState state){
+	public void setState(CState state){
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 
 		if (m_state != null) {
@@ -35,6 +32,11 @@ public class CPlayer : MonoBehaviour {
 			state.enter(player);
 			m_state = state;
 		}
+
+	}
+
+	public void setVelocity(float fVelocity){
+		rigidbody.velocity = new Vector3 (0, 0, fVelocity);
 
 	}
 
@@ -49,6 +51,8 @@ public class CPlayer : MonoBehaviour {
 //				GameObject barrier = other.transform.parent.gameObject;
 //				CBarrier script = (CBarrier)barrier.GetComponent (typeof(CBarrier));
 //				script.startGlint ();
+//		m_nScore ++;
+
 		Debug.Log ("trigger");
 	}
 	
@@ -73,5 +77,13 @@ public class CPlayer : MonoBehaviour {
 		rotate ();
 		if (Input.GetMouseButtonDown (0))
 			m_bRotate = true;
+		if (m_state != null)
+			m_state.update ();
+	}
+
+	void OnGUI(){
+		string strScore = m_nScore.ToString ();
+		GUI.Label(new Rect(10, 10, 100, 20), strScore);
+
 	}
 }

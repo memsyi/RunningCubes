@@ -1,13 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/CPlayer.cs">
     <Files>
-      <File FileName="Assets/Script/CBarrier.cs" Line="54" Column="1" />
-      <File FileName="Assets/Script/CCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/CPlayer.cs" Line="58" Column="23" />
-      <File FileName="Assets/Script/CTwoCubeState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/CQuad.cs" Line="5" Column="31" />
-      <File FileName="Assets/Script/bgtrigger.cs" Line="20" Column="6" />
+      <File FileName="Assets/Script/CPlayer.cs" Line="86" Column="24" />
+      <File FileName="Assets/Standard Assets/Scripts/Camera Scripts/SmoothFollow.js" Line="1" Column="1" />
+      <File FileName="Assets/Script/CBarrier.cs" Line="71" Column="1" />
+      <File FileName="Assets/Script/CCube.cs" Line="12" Column="49" />
+      <File FileName="Assets/Script/CPlayer.cs" Line="90" Column="1" />
+      <File FileName="Assets/Script/CTwoCubeState.cs" Line="9" Column="26" />
+      <File FileName="Assets/Script/CQuad.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/CThreeCubeState.cs" Line="16" Column="51" />
+      <File FileName="Assets/Script/CFourCubeState.cs" Line="16" Column="31" />
+      <File FileName="Assets/Script/bgtrigger.cs" Line="23" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

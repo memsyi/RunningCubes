@@ -8,7 +8,7 @@ public class CBarrier : MonoBehaviour {
 	public int m_nRows = 9;
 	public int m_nCols = 9;
 	public float m_fStartPosX = -4f;
-	public float m_fStartPosY = 0.5f;
+	public float m_fStartPosY = -4f;
 
 
 	// Use this for initialization
@@ -47,7 +47,7 @@ public class CBarrier : MonoBehaviour {
 			GameObject cube = (GameObject)aCubes [i];
 			CCube cube_script = (CCube) cube.GetComponent(typeof(CCube));
 
-			int nRows = (int)(cube_script.m_NoChangePos.y - m_fStartPosY);
+			int nRows = (int)(cube_script.m_NoChangePos.y - 0.5f);
 			int nCols = (int)(cube_script.m_NoChangePos.x - m_fStartPosX);
 			int index = nRows * m_nCols + nCols;
 			GameObject quad = (GameObject)m_aQuads [index];
@@ -68,6 +68,21 @@ public class CBarrier : MonoBehaviour {
 
 		m_bStopGlint = true;
 //		InvokeRepeating("stopGlint", 1,5);
+		int range = Random.Range (0, 3);
+		switch (range) {
+			case 0:
+				transform.Rotate(0, 0, 90);
+				break;
+			case 1:
+				transform.Rotate(0, 0, 180);
+				break;
+			case 2:
+				transform.Rotate(0, 0, 270);
+				break;
+			case 3:
+				transform.Rotate(0, 0, 360);
+				break;
+		}
 
 	}
 
@@ -82,18 +97,14 @@ public class CBarrier : MonoBehaviour {
 		m_bStopGlint = false;
 //		CancelInvoke ();
 	}
+	
 
-//	void OnTriggerExit(Collider other) {
-//		Debug.Log (123);
-//	}
-	
-	
 	// Update is called once per frame
 	void Update () {
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		float distance = transform.position.z - player.transform.position.z;
 
-		if (distance < 60 && m_bStopGlint) {
+		if (distance < 90 && m_bStopGlint) {
 			stopGlint();
 		}
 	}
